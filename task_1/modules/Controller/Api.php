@@ -18,7 +18,7 @@ class Api extends AbstractActionController
 {
     /** @var string  */
     protected const KEY = 'result';
-    
+
     /**
      * Поиск второго по встречаемости символа в строке
      *
@@ -28,10 +28,10 @@ class Api extends AbstractActionController
     {
         $string = $this->getRequest()->getQuery('string', '');
         return new ViewModel([
-            self::KEY => (new Symbols())->searchForSecondMostCommonCharacterInString($string)
+            self::KEY => (new Symbols())->searchForSecondMostCommonCharacterInString($string),
         ]);
     }
-    
+
     /**
      * Являтся полиндромом
      *
@@ -41,7 +41,7 @@ class Api extends AbstractActionController
     {
         $string = $this->getRequest()->getQuery('string', '');
         return new ViewModel([
-            self::KEY => (new Strings())->isPalindrome($string)
+            self::KEY => (new Strings())->isPalindrome($string),
         ]);
     }
 }

@@ -6,5 +6,9 @@
         "psr-4": {
             "Coderun\\SmallDifferentTasks\\": "modules/"
         }
+    },
+    "scripts": {
+        "cs-check": "../tools/vendor/bin/phpcs",
+        "cs-fix": "../tools/vendor/bin/phpcbf"
     }
 }

@@ -16,7 +16,6 @@ use function mb_str_split;
  */
 class Symbols
 {
-    
     /**
      * Поиск второго по встречаемости символа в строке
      *
@@ -27,7 +26,7 @@ class Symbols
         $chars = mb_str_split($string, 1);
         $charsAndCount = array_count_values($chars);
         arsort($charsAndCount);
-        
-        return array_slice($charsAndCount, 1,1);
+
+        return array_slice($charsAndCount, 1, 1);
     }
 }

@@ -15,7 +15,6 @@ use function iconv;
  */
 class Strings
 {
-    
     /**
      * Является полиндромом
      *
