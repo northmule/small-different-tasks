@@ -1,0 +1,10 @@
+{
+    "require": {
+        "laminas-api-tools/api-tools": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Coderun\\SmallDifferentTasks\\": "modules/"
+        }
+    }
+}
