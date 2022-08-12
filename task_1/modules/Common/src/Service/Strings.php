@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Coderun\SmallDifferentTasks\Service;
+namespace Coderun\SmallDifferentTasks\Common\Service;
 
 use function strrev;
 use function mb_strtolower;

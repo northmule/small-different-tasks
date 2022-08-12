@@ -1,14 +1,70 @@
 {
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/package-versions-deprecated": true,
+            "laminas/laminas-component-installer": true
+        }
+    },
+    "extra": {
+        "laminas": {
+            "component-whitelist": [
+                "mezzio/mezzio",
+                "mezzio/mezzio-helpers",
+                "mezzio/mezzio-router",
+                "laminas/laminas-httphandlerrunner",
+                "mezzio/mezzio-laminasrouter"
+            ]
+        }
+    },
     "require": {
-        "laminas-api-tools/api-tools": "^1.6"
+        "php": "^7.4 || ~8.0.0 || ~8.1.0",
+        "composer/package-versions-deprecated": "^1.10.99",
+        "laminas/laminas-component-installer": "^2.6",
+        "laminas/laminas-config-aggregator": "^1.6",
+        "laminas/laminas-diactoros": "^2.7",
+        "laminas/laminas-stdlib": "^3.6",
+        "mezzio/mezzio": "^3.7",
+        "mezzio/mezzio-helpers": "^5.7",
+        "jsoumelidis/zend-sf-di-config": "^0.4",
+        "mezzio/mezzio-laminasrouter": "^3.0.1"
+    },
+    "require-dev": {
+        "laminas/laminas-development-mode": "^3.3.0",
+        "mezzio/mezzio-tooling": "^2.1",
+        "phpunit/phpunit": "^9.5.11",
+        "roave/security-advisories": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Coderun\\SmallDifferentTasks\\": "modules/"
+            "Coderun\\SmallDifferentTasks\\Api\\": "modules/Api/src",
+            "Coderun\\SmallDifferentTasks\\Common\\": "modules/Common/src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AppTest\\": "test/AppTest/"
         }
     },
     "scripts": {
-        "cs-check": "../tools/vendor/bin/phpcs",
-        "cs-fix": "../tools/vendor/bin/phpcbf"
+        "post-create-project-cmd": [
+            "@development-enable"
+        ],
+        "development-disable": "laminas-development-mode disable",
+        "development-enable": "laminas-development-mode enable",
+        "development-status": "laminas-development-mode status",
+        "mezzio": "laminas --ansi",
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "clear-config-cache": "php bin/clear-config-cache.php",
+        "enable-codestandard": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "serve": "php -S 0.0.0.0:8080 -t public/",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     }
 }

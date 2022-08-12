@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Coderun\SmallDifferentTasks\Service;
+namespace Coderun\SmallDifferentTasks\Common\Service;
 
 use function array_count_values;
 use function array_slice;
